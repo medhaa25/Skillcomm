@@ -1,0 +1,37 @@
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    .header {
+        font-size: 4rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .sub-heading {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .service {
+        margin-top: 1rem;
+        padding: 1rem 3rem;
+        border-radius: 1rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background-color: #28A745;
+        border: 2px solid #28A745;
+        color: #e7f0f2;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        &:hover {
+            background-color: #e7f0f2;
+            color: #28A745;
+            border: 2px solid #28A745;
+        }
+    }
+}
