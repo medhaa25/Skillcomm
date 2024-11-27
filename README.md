@@ -1,8 +1,7 @@
-# React + Vite
+This is a web application for scheduling appointments with workers. Users can fill in their details, select a date and time, and confirm their appointments. The application uses React with Material-UI (MUI) for the user interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+Appointment Scheduling: Users can input personal details, choose a date and time, and provide additional information.
+Dynamic Worker Data: Each worker's appointment page is dynamically generated based on their ID.
+Notification System: Provides feedback for successful or incomplete scheduling using MUI Snackbar and Alert components.
+Confirmation View: Displays a success message with appointment details after scheduling.
