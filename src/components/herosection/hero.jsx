@@ -1,46 +1,59 @@
+import { useState } from "react";
 import "./hero.scss";
 import Header from "../header/header";
 import Footer from "../Footer/Footer";
-const hero = () => {
+import Category from "../Category/category";
+import Sort from "../Sort/sort";
+import { Grid, useMediaQuery } from "@mui/material";
+import GridArea from "../Grid/Grid";
+import workersData from "../WorkerCard/WorkerData";
+
+const Hero = () => {
+  const [filteredWorkers, setFilteredWorkers] = useState(workersData);
+  const [sortOption, setSortOption] = useState("relevance");
+  const isSmallScreen = useMediaQuery("(max-width:599px)");
+
+  const sortWorkers = (workers) => {
+    switch (sortOption) {
+      case "rating":
+        return [...workers].sort((a, b) => b.rating - a.rating);
+      case "lowToHigh":
+        return [...workers].sort((a, b) => a.charges - b.charges);
+      case "highToLow":
+        return [...workers].sort((a, b) => b.charges - a.charges);
+      default:
+        return workers;
+    }
+  };
+
+  const sortedWorkers = sortWorkers(filteredWorkers);
+
   return (
     <>
       <Header />
       <section className="hero">
-        <div className="header"> Local Skills for Local Needs</div>
-        <div className="sub-heading">
-          Connecting you with local experts for all your home and service
-          requirements.
-        </div>
-        <button className="service">Book a Service Now</button>
-      </section>
-      <section className="sub-section">
-        <h2 className="text">Our Services</h2>
-        <div className="content-grid">
-          <div>Cleaning</div>
-          <div>Painting</div>
-          <div>Gardening</div>
-          <div>Plumbing</div>
-        </div>
-        <div className="after-text">and many more..</div>
-      </section>
-      <section className="book-service-page">
-        <h2>What Our Customers Say</h2>
-        <blockquote>
-          &quot;SkilComm made booking a service so easy! Highly recommend!&quot;
-          - Alex J.
-        </blockquote>
-        <blockquote>
-          &quot;SkilComm made booking a service so easy! Highly recommend!&quot;
-          - Alex J.
-        </blockquote>
-        <blockquote>
-          &quot;Professional and reliable. Will use again.&quot; - Jamie T.
-        </blockquote>
-        <button className="service-button">Book a Service Now</button>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid item xs={isSmallScreen ? 6 : 12}>
+            <Category setFilteredWorkers={setFilteredWorkers} />{" "}
+          </Grid>
+          <Grid item xs={isSmallScreen ? 6 : 12}>
+            <Sort setSortOption={setSortOption} />
+          </Grid>
+        </Grid>
+        <GridArea workers={filteredWorkers} sortedWorkers={sortedWorkers} />{" "}
       </section>
       <Footer />
     </>
   );
 };
 
-export default hero;
+export default Hero;

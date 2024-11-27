@@ -1,0 +1,8 @@
+.grid-main {
+    // background-color: rgb(214, 254, 155);
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
+    margin: 4rem 0;
+}

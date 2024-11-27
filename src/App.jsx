@@ -1,16 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Hero from "./components/herosection/hero";
-import Login from "./components/login/login";
-import Signup from "./components/signup/signup";
 
+import Details from "./components/Details/Details";
+import ScheduleAppointment from "./components/Schedule/Schedule";
 function App() {
   return (
     <Router>
       <main>
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+
+          <Route path="/worker-details/:id" element={<Details />} />
+          <Route
+            path="/schedule-appointment/:id"
+            element={<ScheduleAppointment />}
+          />
         </Routes>
       </main>
     </Router>
